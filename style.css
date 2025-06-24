@@ -1,0 +1,86 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0e0e0e;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+nav {
+  background: #111;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 0;
+  border-bottom: 1px solid #222;
+}
+nav a {
+  color: #00ffe0;
+  text-decoration: none;
+  font-weight: bold;
+}
+header {
+  text-align: center;
+  padding: 50px 20px 30px;
+}
+header h1 {
+  font-size: 2.2rem;
+  color: #00ffe0;
+  margin: 0;
+}
+.section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.section h2 {
+  border-left: 4px solid #00ffe0;
+  padding-left: 12px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.project {
+  background: #181818;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #333;
+}
+.project img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.project h3 {
+  margin: 0 0 10px;
+  color: #00ffe0;
+}
+.project p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #aaa;
+}
+.hire-button {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 14px 28px;
+  font-size: 1rem;
+  background-color: #00ffe0;
+  color: #000;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.2s ease-in-out;
+}
+.hire-button:hover {
+  background-color: #00ccc0;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1rem;
+}
