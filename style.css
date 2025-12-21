@@ -11,7 +11,6 @@
   --glow: 0 0 15px rgba(0, 255, 224, 0.3);
 }
 
-/* Animação Suave */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
@@ -35,7 +34,8 @@ body {
 nav {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  flex-wrap: wrap; /* Para telas pequenas */
+  gap: 25px;
   padding: 20px 0;
   background: rgba(10, 10, 10, 0.85);
   backdrop-filter: blur(12px);
@@ -78,7 +78,7 @@ nav a:hover::after, nav a.active::after {
   width: 100%;
 }
 
-/* === HEADER / INTRO === */
+/* === GERAL === */
 header {
   text-align: center;
   padding: 60px 20px 40px;
@@ -101,7 +101,6 @@ header p {
   margin: 15px auto 0;
 }
 
-/* === SECTION GERAL === */
 .section {
   max-width: 1100px;
   margin: 40px auto;
@@ -117,90 +116,63 @@ h2 {
   color: #fff;
 }
 
-/* === ESTRUTURA DA PÁGINA SOBRE (RESTUARADO) === */
-.sobre-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* === PAGE: CONTATO (NOVO) === */
+.contact-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-main-btn {
+  display: block;
+  background: #5865F2; /* Cor Discord */
+  color: white;
   text-align: center;
-  gap: 40px;
-}
-
-.logo-area {
-  margin-bottom: 10px;
-}
-
-.logo-img {
-  width: 160px;
-  height: 160px;
-  object-fit: contain;
-  border-radius: 50%;
-  border: 2px solid var(--primary);
-  padding: 10px;
-  box-shadow: 0 0 30px rgba(0, 255, 224, 0.2);
-  transition: transform 0.3s;
-  background: rgba(0,0,0,0.3);
-}
-
-.logo-img:hover {
-  transform: scale(1.05) rotate(2deg);
-  box-shadow: 0 0 50px rgba(0, 255, 224, 0.4);
-}
-
-.text-area {
-  max-width: 800px;
-}
-
-.text-area p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #ccc;
-  margin-bottom: 20px;
-}
-
-/* Grid de Status/Números */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.stat-box {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 30px 20px;
+  padding: 30px;
   border-radius: 12px;
-  transition: transform 0.3s, border-color 0.3s;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 25px;
+}
+
+.contact-main-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(88, 101, 242, 0.4);
+  background: #4752c4;
+}
+
+.contact-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.contact-box {
+  background: var(--bg-card);
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.stat-box:hover {
-  transform: translateY(-5px);
+.contact-box:hover {
   border-color: var(--primary);
-  background: rgba(0, 255, 224, 0.05);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transform: translateY(-5px);
+  background: #222;
 }
 
-.stat-number {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--primary);
-  text-shadow: 0 0 15px rgba(0, 255, 224, 0.4);
-  line-height: 1;
-  margin-bottom: 10px;
-}
-
-.stat-label {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #fff;
-  font-weight: 600;
-}
+.contact-box h3 { margin: 10px 0 5px; color: var(--primary); }
+.contact-box span { font-size: 0.9rem; color: #ccc; }
+.contact-icon { font-size: 2rem; margin-bottom: 10px; }
 
 /* === HOME NAVIGATION CARDS === */
 .home-grid {
@@ -217,13 +189,11 @@ h2 {
   padding: 40px 20px;
   text-align: center;
   text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   position: relative;
-  overflow: hidden;
 }
 
 .nav-card:hover {
@@ -233,29 +203,11 @@ h2 {
   box-shadow: 0 10px 40px rgba(0, 255, 224, 0.15);
 }
 
-.nav-card-icon {
-  font-size: 3rem;
-  margin-bottom: 15px;
-  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
-}
+.nav-card-icon { font-size: 3rem; margin-bottom: 15px; }
+.nav-card h3 { color: #fff; font-size: 1.4rem; margin: 0; text-transform: uppercase; font-weight: 800; }
+.nav-card p { color: var(--text-gray); font-size: 0.9rem; margin-top: 8px; }
 
-.nav-card h3 {
-  color: #fff;
-  font-size: 1.4rem;
-  margin: 0;
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 1px;
-}
-
-.nav-card p {
-  color: var(--text-gray);
-  font-size: 0.9rem;
-  margin-top: 8px;
-  margin-bottom: 0;
-}
-
-/* === COMPONENTES GERAIS (Cards Normais) === */
+/* === CARDS GERAIS === */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -285,7 +237,7 @@ h2 {
 .card h3 { color: var(--primary); margin: 0 0 10px; }
 .card p { color: var(--text-gray); font-size: 0.9rem; }
 
-/* Stats box dentro dos cards normais */
+/* Stats box */
 .stats-box {
   background: #0f0f0f;
   padding: 10px;
@@ -298,7 +250,17 @@ h2 {
   gap: 8px;
 }
 
-.hire-btn-large {
+/* Page Sobre styles */
+.sobre-container { display: flex; flex-direction: column; alignItems: center; text-align: center; gap: 40px; }
+.logo-img { width: 160px; height: 160px; border-radius: 50%; border: 2px solid var(--primary); padding: 10px; transition: transform 0.3s; }
+.logo-img:hover { transform: scale(1.05) rotate(2deg); }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; width: 100%; margin-top: 20px; }
+.stat-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 30px 20px; border-radius: 12px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.stat-number { font-size: 3rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
+.stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; }
+
+/* Tally Button Style */
+.tally-btn {
   display: inline-block;
   background: var(--primary);
   color: #000;
@@ -311,7 +273,7 @@ h2 {
   transition: 0.3s;
   box-shadow: 0 0 20px rgba(0, 255, 224, 0.4);
 }
-.hire-btn-large:hover {
+.tally-btn:hover {
   background: #fff;
   box-shadow: 0 0 40px rgba(0, 255, 224, 0.8);
   transform: scale(1.05);
