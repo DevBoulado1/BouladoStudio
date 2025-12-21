@@ -20,12 +20,11 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-dark);
-  /* CORREÇÃO DO FUNDO AQUI: */
   background-image: 
     radial-gradient(circle at 50% 0%, #1a2c2a 0%, transparent 60%),
     linear-gradient(to bottom, #0a0a0a, #050505);
-  background-attachment: fixed; /* O fundo não rola junto, fica fixo */
-  min-height: 100vh; /* Garante que o fundo vá até o final da tela */
+  background-attachment: fixed;
+  min-height: 100vh;
   color: var(--text-white);
   margin: 0;
   padding: 0;
@@ -106,7 +105,7 @@ header p {
 .section {
   max-width: 1100px;
   margin: 40px auto;
-  padding: 0 25px 60px; /* Padding extra embaixo */
+  padding: 0 25px 60px;
   animation: fadeInUp 1s ease-out;
 }
 
@@ -118,7 +117,92 @@ h2 {
   color: #fff;
 }
 
-/* === HOME NAVIGATION CARDS (NOVO) === */
+/* === ESTRUTURA DA PÁGINA SOBRE (RESTUARADO) === */
+.sobre-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+}
+
+.logo-area {
+  margin-bottom: 10px;
+}
+
+.logo-img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  padding: 10px;
+  box-shadow: 0 0 30px rgba(0, 255, 224, 0.2);
+  transition: transform 0.3s;
+  background: rgba(0,0,0,0.3);
+}
+
+.logo-img:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 0 50px rgba(0, 255, 224, 0.4);
+}
+
+.text-area {
+  max-width: 800px;
+}
+
+.text-area p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+/* Grid de Status/Números */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 30px 20px;
+  border-radius: 12px;
+  transition: transform 0.3s, border-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  background: rgba(0, 255, 224, 0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-shadow: 0 0 15px rgba(0, 255, 224, 0.4);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* === HOME NAVIGATION CARDS === */
 .home-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -171,7 +255,7 @@ h2 {
   margin-bottom: 0;
 }
 
-/* === OUTROS COMPONENTES === */
+/* === COMPONENTES GERAIS (Cards Normais) === */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -201,7 +285,7 @@ h2 {
 .card h3 { color: var(--primary); margin: 0 0 10px; }
 .card p { color: var(--text-gray); font-size: 0.9rem; }
 
-/* Stats box dentro dos cards */
+/* Stats box dentro dos cards normais */
 .stats-box {
   background: #0f0f0f;
   padding: 10px;
@@ -214,7 +298,6 @@ h2 {
   gap: 8px;
 }
 
-/* Botão de Contratação */
 .hire-btn-large {
   display: inline-block;
   background: var(--primary);
